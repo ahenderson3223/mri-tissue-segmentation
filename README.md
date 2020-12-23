@@ -1,5 +1,7 @@
-## MRI Imaging Project
-
+## MRI Brain Tissue Segmentation Project
+Anna Henderson
+Cornell University
+Class of 2023
 
 ### Goal
 To create a program that will segment an MRI images based on three tissue types--white matter, gray matter, and cerebrospinal fluid--based on the pixel intensities in 2D slices of MRI images.
