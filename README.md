@@ -14,7 +14,11 @@ The first method developed was the intensity histogram analysis method.
    * first minimum to second 
    * second minimum to 255
 * The image was then recolored with the following method:
-   * For first interval, a random number between 25 and the first minimum
-      * between 
+   * First interval: a random number between 25 and the first minimum
+      * 25 was chosen in order to distinguish these pixels from the background intensity (0)
+   * Second interval: a random number between the first and second minima
+   * Third interval: Intensity 255
+   
+
 
 [About](./AboutTheProject.md)
