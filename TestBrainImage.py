@@ -14,8 +14,8 @@ mybins = []
 for w in range(1, 255):
     mybins.append(w)
 
-img = cv2.imread('BrainNoSkull.png', 0)
-org_img = cv2.imread('BrainNoSkull.png', 0)
+img = cv2.imread('Images/BrainNoSkull.png', 0)
+org_img = cv2.imread('Images/BrainNoSkull.png', 0)
 # cv2.imshow('image',img)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
