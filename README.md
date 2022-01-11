@@ -10,7 +10,7 @@ This project is in-progress. The script currently displays the segmented image a
 
 # Project Screen Shots
 
-![screenshot](https://github.com/ahenderson3223/mri-tissue-segmentation/blob/main/Images/ScreenshotSideBySide.png?raw=true)
+![screenshot](https://github.com/ahenderson3223/mri-tissue-segmentation/blob/master/Images/ScreenshotSideBySide.png?raw=true)
 
 # Technologies used
 
