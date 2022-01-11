@@ -1,10 +1,12 @@
 # MRI Brain Tissue Segmentation Project
 
-A script that segments an MRI image into three tissue types --white matter, gray matter, and cerebrospinal fluid-- based on the pixel intensities in 2D slices of MRI images.
+A script that segments a 2D MRI brain image.
+
+The script segments the image into three parts. Then, we will compare the resulting image's segments with the location of the three types of brain tissue: white matter, gray matter, and cerebrospinal fluid.
 
 # Project Status
 
-This project is in-progress. The script currently displays the segmented image alongside the original image for a pre-determined file. The project will be expanded to allow users to input an MRI image of their choice and produce a new file of the segmented image rather than just displaying it.
+This project is in-progress. The script currently displays the segmented image alongside the original image for a pre-determined file. The project will be expanded to allow users to input an MRI image of their choice and produce a new file of the segmented image rather than just displaying it. We also will draw comparisons with the segments in the image and the locations of the three tissue types.
 
 # Project Screen Shots
 
@@ -20,7 +22,9 @@ My interest in Computer Vision and biology inspired me to begin this project. I 
 
 Although my project is (currently) not for medical use, I was interested in what would occur if I performed image segmentation on MRI images.
 
-# Intensity Histogram Analysis Method
+# Thresholding and Intensity Histogram Analysis Method
+
+The images is segmented using thresholding.
 
 The frequency (# pixels) of each intensity (0-255) is plotted at a histogram using OpenCV.
 A curve is then fit to this data and two minima are found, forming three intervals of the intensities:
