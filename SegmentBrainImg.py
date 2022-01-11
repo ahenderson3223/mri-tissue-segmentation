@@ -13,8 +13,7 @@ import argparse
 
 
 def parse_args():
-    """Parse image argument.
-    Used for command line.
+    """Parse image argument
     """
     parser = argparse.ArgumentParser(
         description='Name of image for segmentation')
