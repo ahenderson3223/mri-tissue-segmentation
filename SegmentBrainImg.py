@@ -8,6 +8,18 @@ import cv2
 from matplotlib import pyplot as plt
 import seaborn as sns
 from scipy.signal._peak_finding import argrelextrema
+import argparse
+
+
+def parse_args():
+    """Parse image argument
+    """
+    parser = argparse.ArgumentParser(
+        description='Name of image for segmentation')
+    parser.add_argument("--image", help="image",
+                        default="Images/BrainNoSkull.png")
+    args = parser.parse_args()
+    return args.image
 
 
 def display_hist(minima):
@@ -19,9 +31,9 @@ def display_hist(minima):
     plt.show()
 
 
-# TODO: Allow user to input image
-img = cv2.imread('Images/BrainNoSkull.png', 0)
-org_img = cv2.imread('Images/BrainNoSkull.png', 0)
+img_name = parse_args()
+img = cv2.imread(img_name, 0)
+org_img = cv2.imread(img_name, 0)
 
 # flatten image, remove black (background )
 flat_img = img.ravel()
