@@ -40,9 +40,8 @@ minm = argrelextrema(np_freq, np.less, order=20)
 minima = minm[0].tolist()
 
 # IMAGE MANIPULATION
-# TODO: find better values for thresholding besides random intensities
-csf = randint(25, minima[1])
-gm = randint(minima[1]+1, minima[2])
+csf = minima[1]
+gm = minima[2]-50
 wm = 255
 # height
 for up in range(img.shape[0]):
@@ -54,11 +53,11 @@ for up in range(img.shape[0]):
             img[up][across] = wm
         elif selected > minima[1] and selected < minima[2]:
             img[up][across] = gm
-# concatenate images horizontally
+
+# DISPLAY IMAGES
 img_concat = np.concatenate((img, org_img), axis=1)
-res = 1600, 900
-scale_w = res[0] / img_concat.shape[1]
-scale_h = res[1] / img_concat.shape[0]
+scale_w = 1600 / img_concat.shape[1]
+scale_h = 900 / img_concat.shape[0]
 scale = min(scale_w, scale_h)
 width = int(img_concat.shape[1]*scale)
 height = int(img_concat.shape[0]*scale)
