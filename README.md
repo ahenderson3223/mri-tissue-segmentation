@@ -6,7 +6,7 @@ The script segments the image into three parts. Then, we will compare the result
 
 # Project Status
 
-This project is in-progress. The script currently displays the segmented image alongside the original image for a pre-determined file. The project will be expanded to allow users to input an MRI image of their choice and produce a new file of the segmented image rather than just displaying it. We also will draw comparisons with the segments in the image and the locations of the three tissue types.
+This project is in-progress. The script currently displays the segmented image alongside the original image for a pre-determined file. The project will be expanded to allow saving a file of the segmented image rather than just displaying it. We also will draw comparisons with the segments in the image and the locations of the three tissue types.
 
 # Project Screen Shots
 
