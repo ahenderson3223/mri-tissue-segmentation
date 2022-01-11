@@ -8,7 +8,6 @@ import cv2
 from matplotlib import pyplot as plt
 import seaborn as sns
 from scipy.signal._peak_finding import argrelextrema
-from random import randint
 
 
 def display_hist(minima):
