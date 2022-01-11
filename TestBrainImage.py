@@ -10,22 +10,16 @@ import seaborn as sns
 from scipy.signal._peak_finding import argrelextrema
 from random import randint
 
-mybins = []
-for w in range(1, 255):
-    mybins.append(w)
-
 # TODO: Allow user to input image
 img = cv2.imread('Images/BrainNoSkull.png', 0)
 org_img = cv2.imread('Images/BrainNoSkull.png', 0)
 
 # PROBABILITY DENSITY PLOT
-# Clean data, remove black
+# flatten image, remove black (background )
 flat_img = img.ravel()
 clean_data = np.delete(flat_img, np.where(flat_img == 0))
-
 # plot data in histogram with a gaussian kernel density estimate
-# TODO: better way to do mybins?
-p = sns.distplot(clean_data, hist=True, kde=True, bins=mybins)
+p = sns.distplot(clean_data, hist=True, kde=True, bins=list(range(1, 255)))
 
 # FIND MINIMA
 # make a list of the frequencies in the displot
