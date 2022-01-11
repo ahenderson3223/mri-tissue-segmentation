@@ -1,3 +1,39 @@
-# MRITissueImaging
+# MRI Brain Tissue Segmentation Project
 
-Hello there
+A script that segments an MRI image into three tissue types --white matter, gray matter, and cerebrospinal fluid-- based on the pixel intensities in 2D slices of MRI images.
+
+# Project Status
+
+This project is in-progress. The script currently displays the segmented image alongside the original image for a pre-determined file. The project will be expanded to allow users to input an MRI image of their choice and produce a new file of the segmented image rather than just displaying it.
+
+# Project Screen Shots
+
+![screenshot](https://github.com/ahenderson3223/mri-tissue-segmentation/blob/main/Images/ScreenshotSideBySide.png?raw=true)
+
+# Technologies used
+
+Python libraries: OpenCV, numpy, matplotlib, seaborn, scipy
+
+# Reflection
+
+My interest in Computer Vision and biology inspired me to begin this project. I wanted to create something that had the potential to aid in the medical field.
+
+Although my project is (currently) not for medical use, I was interested in what would occur if I performed image segmentation on MRI images.
+
+# Intensity Histogram Analysis Method
+
+The frequency (# pixels) of each intensity (0-255) is plotted at a histogram using OpenCV.
+A curve is then fit to this data and two minima are found, forming three intervals of the intensities:
+
+- 0 to first minimum
+- first minimum to second
+- second minimum to 255
+
+The image is then thresholded using these values with the following method:
+For pixel intensity I, threshold 1 T1, threshold 2 T2:
+
+- For I &leq; T1, recolor the pixel as T1.
+- For T1 &lt; I &leq; T2, recolor pixel as T2
+- For I &gt; T2, recolor pixel as 255.
+
+This results in a segmented image, thresholded to three intensities.
