@@ -14,26 +14,17 @@ mybins = []
 for w in range(1, 255):
     mybins.append(w)
 
+# TODO: Allow user to input image
 img = cv2.imread('Images/BrainNoSkull.png', 0)
 org_img = cv2.imread('Images/BrainNoSkull.png', 0)
-# cv2.imshow('image',img)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
-
-# PLOT FREQUENCIES
-# ravel flattens the matrix to 1D
-# hist: first arg is data, second is max number of pixel values, third is range of pixel values
-#plt.hist(img.ravel(), 254, [1,254])
-# plt.show()
 
 # PROBABILITY DENSITY PLOT
 # Clean data, remove black
-clean_data = []
-for z in img.ravel():
-    if z != 0:
-        clean_data.append(z)
-# displot: first arg is data, second is whether to plot a histogram, third is whether to plot a gaussian kernel density estimate
-# fourth is number of bins
+flat_img = img.ravel()
+clean_data = np.delete(flat_img, np.where(flat_img == 0))
+
+# plot data in histogram with a gaussian kernel density estimate
+# TODO: better way to do mybins?
 p = sns.distplot(clean_data, hist=True, kde=True, bins=mybins)
 
 # FIND MINIMA
@@ -55,11 +46,8 @@ for n in minm_l:
 print(minm_l)
 plt.show()
 
-# THIS IS WHERE IS GETS SKETCHY
 # IMAGE MANIPULATION
-# WARNING: sketchy code
-# Changing to random colors
-# future work: to beautify, find the maximums and make these the colors
+# TODO: find better values for thresholding besides random intensities
 csf = randint(25, minm_l[1])
 gm = randint(minm_l[1]+1, minm_l[2])
 wm = 255
@@ -75,8 +63,6 @@ for up in range(img.shape[0]):
             img[up][across] = gm
 # concatenate images horizontally
 img_concat = np.concatenate((img, org_img), axis=1)
-# make it look pretty
-# resolution 1600x900
 res = 1600, 900
 scale_w = res[0] / img_concat.shape[1]
 scale_h = res[1] / img_concat.shape[0]
