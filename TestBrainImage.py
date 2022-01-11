@@ -33,11 +33,8 @@ clean_data = np.delete(flat_img, np.where(flat_img == 0))
 p = sns.distplot(clean_data, hist=True, kde=True, bins=list(range(1, 255)))
 
 # FIND MINIMA
-# make a list of the frequencies in the displot
 frequencies = [h.get_height() for h in p.patches]
-# convert list of frequencies to numpy array
 np_freq = np.asarray(frequencies)
-# find minima
 # TODO: calculate order so that it will work for any image
 minm = argrelextrema(np_freq, np.less, order=20)
 minima = minm[0].tolist()
